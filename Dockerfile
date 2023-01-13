@@ -10,7 +10,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update
-RUN sudo apt-get install -y libgl1-mesa-dev
+RUN apt-get install -y libgl1-mesa-dev
 
 # Install pip requirements
 COPY requirements.txt .
