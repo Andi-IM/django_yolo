@@ -10,7 +10,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update
-RUN apt-get install ffmpeg libsm6 libxext6  -y
+RUN sudo apt-get install -y libgl1-mesa-dev  -y
 
 # Install pip requirements
 COPY requirements.txt .
