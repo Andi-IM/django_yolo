@@ -38,8 +38,7 @@ def object_detection_api(api_request):
 
 
 def detect_request(api_request):
-    context = {'host': api_request.get_host}
-    return render(api_request, 'index.html', context)
+    return render(api_request, 'index.html')
 
 
 def find_model():
