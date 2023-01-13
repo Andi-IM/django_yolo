@@ -32,8 +32,7 @@ def object_detection_api(api_request):
         json_object['success'] = True
         json_object['time'] = str(round(detection_time)) + " seconds"
         json_object['objects'] = result
-
-    print(result)
+        print(result)
     return JsonResponse(json_object)
 
 
