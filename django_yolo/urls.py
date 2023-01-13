@@ -20,8 +20,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 from django.views.generic import RedirectView
 
-from objectdetection import views as ob
-
 urlpatterns = [
     path('', RedirectView.as_view(url='object_detection/')),
     path('admin/', admin.site.urls),
@@ -30,4 +28,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

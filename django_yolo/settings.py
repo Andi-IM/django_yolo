@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'localhost'
+    'localhost',
+    'django-yolo-7ejrtbdj5a-uc.a.run.app'
 ]
 
 
@@ -122,8 +123,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    'static/assets',
+    'static/admin'
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 

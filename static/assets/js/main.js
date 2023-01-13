@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     var dropContainer = document.getElementById('drop-container');
     dropContainer.ondragover = dropContainer.ondragend = function () {
         return false;
@@ -17,7 +16,7 @@ $(document).ready(function () {
     $('.modal').modal({
         dismissible: false, ready: function (modal, trigger) {
             $.ajax({
-                type: "POST", url: '/object_detection/api_request/', data: {
+                type: "POST", url: 'api_request', data: {
                     'image64': $('#img-card-1').attr('src')
                 }, dataType: 'text', success: function (data) {
                     loadStats(data)
@@ -33,19 +32,15 @@ $(document).ready(function () {
         $('#stat-table').html('');
         switchCard(0);
     });
+
     $('#go-start').click(function () {
-        var elem = document.getElementById("result");
-        elem.parentNode.removeChild(elem);
-        $('#stat-table').html('');
-        switchCard(0);
+        location.reload();
     });
 
     $('#show').click(function () {
         switchCard(3);
-        var timestamp = new Date().getTime();
         var el = document.getElementById("#img-card-2");
-        var queryString = "?t=" + timestamp;
-        el.src = "http://127.0.0.1:8000/object_detection/Object_Detection/static/test.jpeg" + queryString;
+        el.src = '../media/image0.jpg'
     });
 
 

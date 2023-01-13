@@ -38,7 +38,8 @@ def object_detection_api(api_request):
 
 
 def detect_request(api_request):
-    return render(api_request, 'index.html')
+    context = {'host': api_request.get_host}
+    return render(api_request, 'index.html', context)
 
 
 def find_model():
@@ -55,14 +56,7 @@ def detect(original_image, web=True):
 
     start = time.time()
     result = model(original_image, size=640)
-    result.save('static/')
+    result.save('media/')
     end = time.time()
 
-    image = []
-    for f in os.listdir('static/'):
-        if f.endswith(".jpg"):
-            image.append(f)
-        elif f.endswith(".jpeg"):
-            image.append(f)
-
-    return image[-1], round(end-start)
+    return 'image0', round(end - start)
