@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block pagetitle %}
+    <title>{{ title }}</title>
+    {% endblock pagetitle %}
+
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block metadesc %}
+    <meta name="description" content="Home Template">
+    {% endblock metadesc %}
+    <meta name="author" content="Andi Irham">
+    <link rel="stylesheet" href="{% static "favicon.ico" %}">
+    {% include "base/css.html" %}
+</head>
+<body>
+    {% block content  %} {% endblock content %}
+    {% include 'base/js.html' %}
+</body>
+</html>

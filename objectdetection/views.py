@@ -16,7 +16,6 @@ def object_detection_api(api_request):
     json_object = {'success': False}
 
     if api_request.method == "POST":
-
         if api_request.POST.get("image64", None) is not None:
             base64_data = api_request.POST.get("image64", None).split(',', 1)[1]
             data = b64decode(base64_data)
@@ -56,11 +55,11 @@ def detect(original_image, web=True):
 
     start = time.time()
     result = model(original_image, size=640)
-    result.save('/static')
+    result.save('static/')
     end = time.time()
 
     image = []
-    for f in os.listdir('static'):
+    for f in os.listdir('static/'):
         if f.endswith(".jpg"):
             image.append(f)
         elif f.endswith(".jpeg"):

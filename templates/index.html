@@ -1,22 +1,15 @@
+{% extends 'base/home.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>YOLOv3 Object Detection</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'main.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+{% block pagetitle %}
+    <title>YOLOv7 Object Detection</title>
+{% endblock %}
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="{% static 'main.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
-</head>
+{% block metadesc %}
+    <meta name="description" content="hello">
+{% endblock metadesc %}
 
-<body>
+{% block content %}
 <div class="container row main-container">
     <div class="col s12 dd-container">
         <div class="card dd-card">
@@ -58,7 +51,7 @@
     </div>
     <div class="col s12 it-container">
         <div class="card it-card">
-            <img id="#img-card-2" src="{% static 'test.jpeg' %}"
+            <img id="#img-card-2" src="{% static 'assets/images/test.jpeg' %}"
                  class="center-1" alt=""/>
         </div>
         <div class="waves-effect waves-light btn button" id="go-start">
@@ -76,5 +69,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+{% endblock %}
