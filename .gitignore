@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
 # C extensions
 *.so
 
@@ -129,3 +130,6 @@ dmypy.json
 .pyre/
 .idea/
 .vscode/
+
+# weight YOLOv7
+*.pt
