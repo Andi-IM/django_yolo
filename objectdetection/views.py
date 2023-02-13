@@ -6,14 +6,17 @@ from base64 import b64decode
 import numpy as np
 import torch.hub
 from PIL import Image
-from django.http import JsonResponse
+from django.contrib.auth.models import User
+from django.http import JsonResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework import viewsets
+
+from .rest import UserSerializer
 
 
 @csrf_exempt
 def object_detection_api(api_request):
-
     json_object = {'success': False}
 
     if api_request.method == "POST":
@@ -56,7 +59,18 @@ def detect(original_image, web=True):
     data = result.pandas().xyxy[0].name.tolist()
     data = {i: data.count(i) for i in data}
 
-    result.save('media/')
+    if web:
+        result.save('media/')
+
     end = time.time()
 
     return data, round(end - start)
+
+
+def save(request):
+    return HttpResponseNotFound("Not Found")
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

@@ -132,4 +132,5 @@ dmypy.json
 .vscode/
 
 # weight YOLOv7
+/weights
 *.pt
