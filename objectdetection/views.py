@@ -6,9 +6,13 @@ from base64 import b64decode
 import numpy as np
 import torch.hub
 from PIL import Image
+from django.contrib.auth.models import User
 from django.http import JsonResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework import viewsets
+
+from .rest import UserSerializer
 
 
 @csrf_exempt
@@ -65,3 +69,8 @@ def detect(original_image, web=True):
 
 def save(request):
     return HttpResponseNotFound("Not Found")
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
